@@ -1,0 +1,454 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_import": 1,
+ "autoname": "format:2023-0{transaction_number}",
+ "creation": "2024-05-02 03:13:54.121983",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "section_break_m27j",
+  "amended_from",
+  "transaction_details_section",
+  "transaction_number",
+  "old_transaction_date",
+  "type",
+  "security_classification",
+  "party",
+  "sub_party",
+  "number_of_party_transaction",
+  "date_of_party_transaction",
+  "column_break_qtzq",
+  "subject",
+  "priority",
+  "transaction_type",
+  "number_of_pages",
+  "grievance",
+  "is_group",
+  "need_a_reply",
+  "column_break_embi",
+  "completed_on",
+  "completed_on_hijri",
+  "notes",
+  "section_break_zwik",
+  "details",
+  "section_break_nzyz",
+  "reply_type",
+  "parent_transaction",
+  "complete_the_transaction",
+  "column_break_hzku",
+  "transaction_subject",
+  "transaction_details",
+  "personal_information_section",
+  "transaction_related_people",
+  "physical_attachments_section",
+  "physical_attachments",
+  "transaction_status_section",
+  "status",
+  "column_break_scep",
+  "reason_to_defer",
+  "qr_code_details_section",
+  "qr_code",
+  "qr_image",
+  "section_break_chql",
+  "lft",
+  "rgt",
+  "old_parent",
+  "column_break_yesq"
+ ],
+ "fields": [
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "section_break_m27j",
+   "fieldtype": "Section Break",
+   "label": "Link to other Transaction"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Transaction",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "bold": 1,
+   "fieldname": "transaction_details_section",
+   "fieldtype": "Section Break",
+   "label": "Transaction Details"
+  },
+  {
+   "fieldname": "transaction_number",
+   "fieldtype": "Data",
+   "label": "Transaction Number",
+   "no_copy": 1
+  },
+  {
+   "fieldname": "security_classification",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Security Classification",
+   "options": "\nUnclassified\nConfidential\nTop Secret",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_qtzq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "transaction_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Transaction Type",
+   "options": "\nDecision\nTelegram\nSummons\nLetter\nPopularization\nAnnouncement\nOther"
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Priority",
+   "options": "\nNormal\nUrgent\nVery Urgent\nImmediately",
+   "reqd": 1
+  },
+  {
+   "fieldname": "number_of_pages",
+   "fieldtype": "Int",
+   "label": "Number of Pages"
+  },
+  {
+   "fieldname": "column_break_embi",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subject",
+   "fieldtype": "Small Text",
+   "in_list_view": 1,
+   "in_preview": 1,
+   "label": "Subject",
+   "max_height": "80px",
+   "reqd": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Small Text",
+   "label": "Notes"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "personal_information_section",
+   "fieldtype": "Section Break",
+   "label": "Personal Information"
+  },
+  {
+   "fieldname": "transaction_related_people",
+   "fieldtype": "Table",
+   "label": "Transaction Related people",
+   "options": "Transaction Related people"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "physical_attachments_section",
+   "fieldtype": "Section Break",
+   "label": "Physical Attachments"
+  },
+  {
+   "fieldname": "physical_attachments",
+   "fieldtype": "Table",
+   "label": "Physical Attachments",
+   "options": "Transaction Physical Attachments"
+  },
+  {
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Type",
+   "options": "\nOutcome\nIncome",
+   "reqd": 1
+  },
+  {
+   "fieldname": "party",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Party",
+   "options": "Party",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval: doc.party",
+   "fieldname": "sub_party",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Sub Party",
+   "options": "Party"
+  },
+  {
+   "fieldname": "lft",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Left",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "rgt",
+   "fieldtype": "Int",
+   "hidden": 1,
+   "label": "Right",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "1",
+   "fieldname": "is_group",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Main Transaction"
+  },
+  {
+   "fieldname": "old_parent",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Old Parent",
+   "options": "Transaction"
+  },
+  {
+   "fieldname": "parent_transaction",
+   "fieldtype": "Link",
+   "label": "Parent Transaction",
+   "options": "Transaction"
+  },
+  {
+   "depends_on": "eval:doc.type==\"Income\" ",
+   "fieldname": "number_of_party_transaction",
+   "fieldtype": "Data",
+   "label": "Number of Party Transaction"
+  },
+  {
+   "depends_on": "eval:doc.type==\"Income\" ",
+   "fieldname": "date_of_party_transaction",
+   "fieldtype": "Date",
+   "label": "Date of Party Transaction"
+  },
+  {
+   "fieldname": "details",
+   "fieldtype": "Long Text",
+   "label": "Details"
+  },
+  {
+   "fieldname": "section_break_zwik",
+   "fieldtype": "Section Break"
+  },
+  {
+   "depends_on": "eval:doc.parent_transaction",
+   "fetch_from": "parent_transaction.subject",
+   "fieldname": "transaction_subject",
+   "fieldtype": "Data",
+   "is_virtual": 1,
+   "label": "Transaction Subject"
+  },
+  {
+   "depends_on": "eval:doc.parent_transaction",
+   "fetch_from": "parent_transaction.details",
+   "fieldname": "transaction_details",
+   "fieldtype": "Long Text",
+   "is_virtual": 1,
+   "label": "Transaction Details"
+  },
+  {
+   "fieldname": "grievance",
+   "fieldtype": "Link",
+   "label": "Grievance",
+   "options": "Grievance",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "need_a_reply",
+   "fieldtype": "Check",
+   "label": "Need a reply"
+  },
+  {
+   "fieldname": "column_break_hzku",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reply_type",
+   "fieldtype": "Select",
+   "label": "Reply Type",
+   "options": "\nReply to income\nReply to outcome"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:doc.parent_transaction",
+   "fieldname": "complete_the_transaction",
+   "fieldtype": "Check",
+   "label": "Complete The transaction"
+  },
+  {
+   "bold": 1,
+   "collapsible": 1,
+   "fieldname": "section_break_nzyz",
+   "fieldtype": "Section Break",
+   "label": "Related Transaction"
+  },
+  {
+   "fieldname": "completed_on",
+   "fieldtype": "Date",
+   "label": "Completed On",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_on_hijri",
+   "fieldtype": "Data",
+   "label": "Completed On Hijri",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_chql",
+   "fieldtype": "Section Break"
+  },
+  {
+   "fieldname": "column_break_yesq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "transaction_status_section",
+   "fieldtype": "Section Break",
+   "label": "Transaction Status"
+  },
+  {
+   "default": "Draft",
+   "depends_on": "eval:!doc.__islocal",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "no_copy": 1,
+   "options": "\nDraft\nSubmitted\nIn Process\nCompleted\nStopped\nCancelled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_scep",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "reason_to_defer",
+   "fieldtype": "Link",
+   "label": "Reason To Defer",
+   "no_copy": 1,
+   "options": "Reason To Defer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qr_code_details_section",
+   "fieldtype": "Section Break",
+   "label": "QR Code Details"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "qr_code",
+   "fieldtype": "Small Text",
+   "hidden": 1,
+   "label": "QR Code",
+   "no_copy": 1,
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "qr_image",
+   "fieldtype": "Attach Image",
+   "hidden": 1,
+   "in_preview": 1,
+   "label": "QR Image",
+   "no_copy": 1,
+   "options": "qr_code"
+  },
+  {
+   "fieldname": "old_transaction_date",
+   "fieldtype": "Datetime",
+   "label": "Old Transaction Date",
+   "no_copy": 1
+  }
+ ],
+ "image_field": "qr_image",
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "is_tree": 1,
+ "links": [],
+ "modified": "2024-10-25 05:37:52.982692",
+ "modified_by": "Administrator",
+ "module": "Acs Import App",
+ "name": "Transaction Data Cleaning",
+ "naming_rule": "Expression",
+ "nsm_parent_field": "parent_transaction",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "import": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Secretary Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Secretary User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "role": "Employee",
+   "select": 1
+  }
+ ],
+ "search_fields": "subject , transaction_type , type ,priority",
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "subject",
+ "track_changes": 1,
+ "track_seen": 1,
+ "track_views": 1
+}
